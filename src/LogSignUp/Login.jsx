@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Loader from "../Animations/loader";
 import styles from "./styles/styles.module.css";
 import GridData from "../gridData/stockGrid";
 import HeroSection from "./heroComp";
 import Footer from "../footer/footer";
 
 const Login = () => {
+    const [LoaderState, SetLoaderState] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showNewContent, setShowNewContent] = useState(false);
@@ -28,6 +30,12 @@ const Login = () => {
     const toform = () => {
         window.location.href= '#tolog';
     };
+
+    if (LoaderState){
+        return (
+            <Loader/>
+        )
+    }
 
     return (
         <div className={styles.pageContainer}>

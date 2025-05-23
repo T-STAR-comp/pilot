@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from "./styles/profileCard.module.css";
 
-const ProfileCard = ({ onClose, showTransactionHistory, showLinkBroker }) => {
+const ProfileCard = ({ onClose, showTransactionHistory, showLinkBroker, LogOutLoader }) => {
     
   const UserLogout = () => {
+    LogOutLoader();
     sessionStorage.removeItem("LOG_STATE");
     window.location.reload();
   };

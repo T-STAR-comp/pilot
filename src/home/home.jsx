@@ -1,5 +1,6 @@
 import styles from "./styles/styles.module.css";
 import { useEffect, useState } from "react";
+import Loader from "../Animations/loader";
 import Footer from "../footer/footer";
 import ProfileCard from "./profileCard";
 import StockCard from "./stockCard";
@@ -31,6 +32,7 @@ const Home = () => {
     balance: "MK 670,000",
     broker: "Cedar Capital"
   });
+  const [LoaderState, SetLoaderState] = useState(false);
   const [stocks, setStocks] = useState(initialStocks);
   const [showBalance, setShowBalance] = useState(false);
   const [selectedStock, setSelectedStock] = useState(null);
@@ -58,6 +60,12 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  if (LoaderState){
+    return (
+        <Loader/>
+    )
+  }
+
   return (
     <div className={styles.main_div}>
       <header className={styles.header}>
@@ -84,6 +92,9 @@ const Home = () => {
                 setShowProfileMenu(false);
                 setShowTransactionHist(false);
                 setShowLinkBroker(true);
+                }}
+                LogOutLoader={()=> {
+                    setShowBalance(true);
                 }}
             />
         )}
