@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Footer from "../footer/footer";
 import ProfileCard from "./profileCard";
 import StockCard from "./stockCard";
+import TransactionHist from "./transactionHist"; // Import this at the top
+import LinkBroker from "./linkBroker";
 
 const initialStocks = [
   { symbol: "AIRTEL", name: "Airtel Malawi Plc", price: 127.95, change: -0.02, volume: "27,361" },
@@ -33,6 +35,11 @@ const Home = () => {
   const [showBalance, setShowBalance] = useState(false);
   const [selectedStock, setSelectedStock] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showTransactionHist, setShowTransactionHist] = useState(false);
+  const [showLinkBroker, setShowLinkBroker] = useState(false);
+
+
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,8 +74,29 @@ const Home = () => {
         </div>
 
         {showProfileMenu && (
-          <ProfileCard onClose={() => setShowProfileMenu(false)} />
+            <ProfileCard
+                onClose={() => setShowProfileMenu(false)}
+                showTransactionHistory={() => {
+                setShowProfileMenu(false);
+                setShowTransactionHist(true);
+                }}
+                showLinkBroker={()=>{
+                setShowProfileMenu(false);
+                setShowTransactionHist(false);
+                setShowLinkBroker(true);
+                }}
+            />
         )}
+
+
+        {showTransactionHist && (
+            <TransactionHist onClose={() => setShowTransactionHist(false)} />
+        )}
+
+        {showLinkBroker && (
+            <LinkBroker onClose={() => setShowLinkBroker(false)} />
+        )}
+
 
         <div className={styles.user_details}>
           <p>Hello, <strong>{user.name}</strong></p>
