@@ -1,0 +1,138 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Main Card */
+.executed_main_div {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(200, 200, 200, 0.25);
+  border-radius: 24px 24px 0 0;
+  padding: 40px 28px 32px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 -12px 24px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.35s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.close_btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Title */
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1c1c1e;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Checkmark Circle */
+.success_icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #28c76f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.4s ease-out;
+}
+
+.success_icon::after {
+  content: "✓";
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Details */
+.details {
+  font-size: 1rem;
+  color: #3a3a3c;
+  margin-top: 10px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.details p {
+  margin-bottom: 10px;
+}
+
+/* Error Styling */
+.failure {
+  background: #fff5f5;
+  border: 1px solid #ffcece;
+}
+
+.errorMsg {
+  color: #d32f2f;
+  font-weight: 500;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Buttons */
+.ok_btn {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 24px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.ok_btn:hover {
+  background: #2b4cb3;
+}

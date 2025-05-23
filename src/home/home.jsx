@@ -29,7 +29,7 @@ const initialStocks = [
 const Home = () => {
   const [user, setUser] = useState({
     name: "Samuel",
-    balance: "MK 670,000",
+    balance: 132000,
     broker: "Cedar Capital"
   });
   const [LoaderState, SetLoaderState] = useState(false);
@@ -39,9 +39,6 @@ const Home = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showTransactionHist, setShowTransactionHist] = useState(false);
   const [showLinkBroker, setShowLinkBroker] = useState(false);
-
-
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -74,10 +71,11 @@ const Home = () => {
             className={styles.profile_icon}
             onClick={() => setShowProfileMenu(true)}
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            {/*<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="8" r="4" />
               <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
-            </svg>
+            </svg>*/}
+            <img className={styles.profile_icon} src="https://i.postimg.cc/tJCp4r6Q/profilepic.jpg" alt="" />
           </div>
         </div>
 
@@ -114,7 +112,7 @@ const Home = () => {
           <p>
             Balance:{" "}
             {showBalance ? (
-              <span className={styles.balance}>{user.balance}</span>
+              <span className={styles.balance}>MWK {user.balance}</span>
             ) : (
               <span className={styles.balance}>****</span>
             )}
@@ -167,6 +165,7 @@ const Home = () => {
           {selectedStock && (
             <StockCard
               stock={selectedStock}
+              userData={user}
               onClose={() => setSelectedStock(null)}
             />
           )}

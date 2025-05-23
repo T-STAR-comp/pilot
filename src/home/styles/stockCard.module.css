@@ -1,77 +1,119 @@
+/* styles/stockCard.module.css */
+
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
   display: flex;
-  align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease;
+  align-items: flex-end;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
 }
 
 .card {
   background-color: white;
+  width: 100%;
+  max-width: 500px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
   padding: 24px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease-out;
+  position: relative;
+}
+
+.drag_handle {
+  width: 40px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 8px;
+  margin: 0 auto 10px auto;
 }
 
 .backBtn {
-  align-self: flex-start;
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.6rem;
   background: none;
   border: none;
-  color: #1e3a8a;
-  font-weight: bold;
-  font-size: 1rem;
   cursor: pointer;
-  margin-bottom: 10px;
+  color: #444;
 }
 
 .actions {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
 }
 
 .actionBtn {
-  background-color: #1e3a8a;
-  color: white;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  padding: 10px 16px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-weight: 500;
+  background-color: #1E3A8A;
+  color: white;
+  transition: background 0.2s ease-in-out;
 }
 
 .actionBtn:hover {
-  background-color: #3749a5;
+  background-color: #163173;
+}
+
+.tradeInputs {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.tradeInputs label {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.tradeInputs input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border 0.2s ease-in-out;
+}
+
+.tradeInputs input:focus {
+  outline: none;
+  border: 1px solid #1E3A8A;
+  background: #fff;
+}
+
+.summary {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
   from {
-    transform: translateY(30px);
-    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
   }
   to {
-    transform: translateY(0);
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.25);
   }
 }
