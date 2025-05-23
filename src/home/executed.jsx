@@ -1,4 +1,4 @@
-import styles from "./styles/Executed.module.css";
+import styles from "./styles/executed.module.css";
 
 const Executed = ({ success, tradeDetails, onClose }) => {
   return (
