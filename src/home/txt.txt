@@ -1,0 +1,29 @@
+import StockCard from "../stockCard/stockCard"; // Import it
+
+// Inside Home component:
+const [selectedStock, setSelectedStock] = useState(null);
+
+// Modify the stock card map:
+{stocks.map((stock, index) => (
+  <div
+    key={index}
+    className={styles.stock_card}
+    onClick={() => setSelectedStock(stock)}
+  >
+    <h3>{stock.symbol} <span className={styles.company_name}>{stock.name}</span></h3>
+    <p className={styles.price}>MK {stock.price.toFixed(2)}</p>
+    <p className={stock.change >= 0 ? styles.positive : styles.negative}>
+      {stock.change >= 0 ? "+" : ""}
+      {stock.change.toFixed(2)}%
+    </p>
+    <p className={styles.volume}>Vol: {stock.volume}</p>
+  </div>
+))}
+
+{/* Show StockCard if a stock is selected */}
+{selectedStock && (
+  <StockCard
+    stock={selectedStock}
+    onClose={() => setSelectedStock(null)}
+  />
+)}
