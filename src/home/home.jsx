@@ -5,13 +5,22 @@ import ProfileCard from "./profileCard";
 import StockCard from "./stockCard";
 
 const initialStocks = [
-  { symbol: "NBS", name: "NBS Bank Plc", price: 102.5, change: 1.35, volume: "1.2M" },
-  { symbol: "FDH", name: "FDH Bank Plc", price: 85.0, change: -0.4, volume: "950K" },
-  { symbol: "TNM", name: "TNM Plc", price: 18.75, change: 0.6, volume: "2.1M" },
-  { symbol: "MPICO", name: "MPICO Plc", price: 25.1, change: 0.1, volume: "1.7M" },
-  { symbol: "NICO", name: "NICO Holdings", price: 95.35, change: 0.95, volume: "890K" },
-  { symbol: "SUNBIRD", name: "Sunbird Tourism", price: 145.0, change: -0.3, volume: "720K" },
-  { symbol: "ILLOVO", name: "Illovo Sugar", price: 210.0, change: 0.15, volume: "1.3M" },
+  { symbol: "AIRTEL", name: "Airtel Malawi Plc", price: 127.95, change: -0.02, volume: "27,361" },
+  { symbol: "BHL", name: "Blantyre Hotels Limited", price: 14.55, change: 0.0, volume: "55870" },
+  { symbol: "FDHB", name: "FDH Bank Plc", price: 313.93, change: -0.01, volume: "16,302" },
+  { symbol: "FMBCH", name: "FMB Capital Holdings Plc", price: 900.0, change: -10.35, volume: "100,000" },
+  { symbol: "ICON", name: "Icon Properties Plc", price: 17.95, change: 0.0, volume: "110,962" },
+  { symbol: "ILLOVO", name: "Illovo Sugar Limited", price: 1791.42, change: 0.0, volume: "1,400" },
+  { symbol: "MPICO", name: "Malawi Property Investment Company", price: 19.0, change: 0.0, volume: "15200" },
+  { symbol: "NBM", name: "National Bank of Malawi", price: 6200.14, change: 0.01, volume: "461" },
+  { symbol: "NBS", name: "NBS Bank Limited", price: 341.0, change: -0.18, volume: "198,452" },
+  { symbol: "NICO", name: "NICO Holdings", price: 776.43, change: -0.04, volume: "5,536" },
+  { symbol: "NITL", name: "National Investment Trust Limited", price: 715.17, change: 0.02, volume: "466,900" },
+  { symbol: "OMU", name: "Old Mutual Limited", price: 2500.01, change: 0.0, volume: "9520" },
+  { symbol: "PCL", name: "Press Corporation Limited", price: 3999.99, change: 0.0, volume: "247" },
+  { symbol: "STANDARD", name: "Standard Bank Malawi Limited", price: 9502.22, change: 0.02, volume: "26,680" },
+  { symbol: "SUNBIRD", name: "Sunbird Tourism Limited", price: 345.01, change: 0.0, volume: "6580" },
+  { symbol: "TNM", name: "Telekom Networks Malawi Limited", price: 23.0, change: 0.01, volume: "4,273" },
 ];
 
 const Home = () => {

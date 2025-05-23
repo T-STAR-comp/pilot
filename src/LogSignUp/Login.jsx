@@ -44,7 +44,7 @@ const Login = () => {
                 <div className={styles.formContainer}>
 
                     {/* Login Form */}
-                    <h2 id="log">Login here</h2>
+                    <h2 id="log">Login Here</h2>
                     <form>
                         <input
                             type="text"
@@ -68,7 +68,9 @@ const Login = () => {
                         Don’t have an account?{" "}
                         <span className={styles.signupLink}><a href="/signup">Sign up</a></span>
                     </p>
-                    <Footer/>
+                    <p className={styles.footerText}>
+                        Powered by <span className={styles.oasis}>Oasis</span>
+                    </p>
                 </div>
             </div>
         </div>
