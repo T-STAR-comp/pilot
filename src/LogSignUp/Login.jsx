@@ -74,7 +74,7 @@ const Login = () => {
                     {/* Footer */}
                     <p className={styles.footerText}>
                         Don’t have an account?{" "}
-                        <span className={styles.signupLink}><a href="/signup">Sign up</a></span>
+                        <span className={styles.signupLink}><a href="/SignUp">Sign up</a></span>
                     </p>
                     <p className={styles.footerText}>
                         Powered by <span className={styles.oasis}>Oasis</span>

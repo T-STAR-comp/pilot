@@ -5,6 +5,7 @@ import Footer from "../footer/footer";
 import ProfileCard from "./profileCard";
 import StockCard from "./stockCard";
 import TransactionHist from "./transactionHist"; // Import this at the top
+import Portfolio from "./potfolio";
 import LinkBroker from "./linkBroker";
 
 const initialStocks = [
@@ -38,6 +39,7 @@ const Home = () => {
   const [selectedStock, setSelectedStock] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showTransactionHist, setShowTransactionHist] = useState(false);
+  const [showPortfolio, setShowPortfolio] = useState(false);
   const [showLinkBroker, setShowLinkBroker] = useState(false);
 
   useEffect(() => {
@@ -80,21 +82,45 @@ const Home = () => {
         </div>
 
         {showProfileMenu && (
-            <ProfileCard
+          <ProfileCard
                 onClose={() => setShowProfileMenu(false)}
                 showTransactionHistory={() => {
                 setShowProfileMenu(false);
                 setShowTransactionHist(true);
-                }}
-                showLinkBroker={()=>{
+              }}
+              showLinkBroker={()=>{
                 setShowProfileMenu(false);
                 setShowTransactionHist(false);
                 setShowLinkBroker(true);
-                }}
-                LogOutLoader={()=> {
-                    setShowBalance(true);
-                }}
-            />
+              }}
+              LogOutLoader={()=> {
+                setShowBalance(true);
+              }}
+              />
+        )}
+        
+        {showPortfolio  && (
+
+          <Portfolio 
+            balance={user.balance}
+            close={()=> {setShowPortfolio(false)}}
+            activeTrades={[
+              { stockName: 'Airtel Malawi Plc', symbol: 'AIRTEL', quantity: 50, currentValue: 6397.5 },
+              { stockName: 'Standard Bank', symbol: 'STNB', quantity: 120, currentValue: 25800 },
+              { stockName: 'National Bank of Malawi', symbol: 'NBM', quantity: 75, currentValue: 18900 },
+              { stockName: 'FDH Bank Plc', symbol: 'FDHB', quantity: 200, currentValue: 9000 },
+            ]}
+
+            investmentSummary={{
+              totalInvested: 100000,
+              returns: 5000,
+              profitLoss: 5000,
+            }}
+            transactions={[
+              { date: '2025-05-20', type: 'Buy', stockName: 'Airtel Malawi Plc', symbol: 'AIRTEL', quantity: 50, amount: 6397.5 },
+              // Add more transactions as needed
+            ]}
+          />
         )}
 
 
@@ -142,7 +168,21 @@ const Home = () => {
       </header>
 
       <section className={styles.stocks_section}>
-        <h2 className={styles.section_title}>Top MSE Stocks</h2>
+
+        <div className={styles.section_buttons_wrapper}>
+          <button
+            className={styles.section_button}
+          >
+            Your Watchlist
+          </button>
+          <button
+            className={styles.portfolio_button}
+            onClick={() => setShowPortfolio(true)}
+          >
+            Open Portfolio
+        </button>
+        </div>
+
         <div className={styles.stocks_grid}>
           {stocks.map((stock, index) => (
             <div
@@ -171,6 +211,10 @@ const Home = () => {
           )}
         </div>
       </section>
+
+
+
+
 
       <Footer />
     </div>
