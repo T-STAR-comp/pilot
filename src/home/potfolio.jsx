@@ -1,8 +1,7 @@
 // components/Portfolio.jsx
 
 import React, { useState } from 'react';
-import styles from './styles/Potfolio.module.css';
-import Footer from '../footer/footer';
+import styles from "./styles/potfolio.module.css";
 
 const Portfolio = ({ balance, activeTrades, investmentSummary, transactions, close }) => {
   const [selectedTradeIndex, setSelectedTradeIndex] = useState(null);
